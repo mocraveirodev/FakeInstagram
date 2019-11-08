@@ -1,0 +1,8 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Página de contato
+  RewriteRule ^([a-z0-9-]+)/?$ index.php?$1 [NC,L]
+</IfModule>
+
+#Esse codigo serve para alterar o index.php? do endereço e o usuario so digitar a rota pra ir par pagina que precisa
