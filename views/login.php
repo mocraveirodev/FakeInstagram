@@ -1,3 +1,10 @@
+<?php 
+    include "views/includes/header.php";
+    
+    if(isset($_SESSION['usuario'])){
+        header('Location:/FakeInstagram/posts');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,21 +17,20 @@
     <link rel="stylesheet" href="views/css/styles.css">
 </head>
 <body>
-    
-    <?php include "views/includes/header.php"; ?>
     <main class="board">
-        <h1> Cadastro de novo Post </h1>
-        <form action="/FakeInstagram/cadastrar-post" method="post" enctype="multipart/form-data">
+        <h1 class="text-center"> Login de Usuário </h1>
+        <form action="/FakeInstagram/logar-usuario" method="post" enctype="multipart/form-data">
             <div class="form-group">
-                <label for="exampleFormControlFile1">Example file input</label>
-                <input type="file" class="form-control-file" name="img" id="exampleFormControlFile1">
+                <label for="email">E-mail:</label>
+                <input type="text" class="form-control" name="email" id="email" placeholder="Insira seu e-mail">
             </div>
             <div class="form-group">
-                <label for="descricao">Descrição</label>
-                <input type="text" class="form-control" id="descricao" name="descricao" placeholder="Insira uma descrição">
+                <label for="senha">Senha:</label>
+                <input type="password" class="form-control" id="senha" name="senha" placeholder="Insira sua senha">
             </div>
-            <button type="submit" class="btn btn-success">Postar</button>
+            <button type="submit" class="btn btn-success">Login</button>
         </form>
+        <p class="text-center">Não tem uma conta? <a href="/FakeInstagram/cadastrar-usuario">Cadastre-se</a></p>
 
     </main>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

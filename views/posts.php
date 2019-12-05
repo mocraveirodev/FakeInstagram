@@ -1,11 +1,15 @@
-
+<?php 
+    $posts = $_REQUEST['posts']; //guardando na variavel a informação dos posts que mandamos na super global que preenchemos no controller 
+    // var_dump($posts);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>FakeInstragram</title>
+    <link rel="shortcut icon" href="views/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="views/css/styles.css">
 </head>
@@ -13,13 +17,17 @@
     
     <?php include "views/includes/header.php"; ?>
     <main class="board">
-        <div class="card mt-5">
-            <img id="cardimg" src="views/img/teste.png" alt="Card image cap">
-            <div class="card-body">
-                <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet rerum modi, fuga tempora officiis nam nostrum aut fugiat vitae, dolore illo itaque porro dignissimos sapiente quidem rem excepturi perferendis distinctio.</p>
+        <!-- Usando foreach para percorrer a lista de posts e popular na tela -->
+        <?php foreach($posts as $post): ?> 
+            <div class="card mt-5">
+                <h5 class="card-header"><?php echo "$post->nome $post->sobrenome"; ?></h5>
+                <img id="cardimg" src="<?= $post->img; ?>" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text"><?= $post->descricao; ?></p>
+                </div>
             </div>
-        </div>
-        <a class="float-button" href="/instagran/formulario-post">&#10010;</a>
+        <?php endforeach; ?>
+        <a class="float-button" href="/FakeInstagram/formulario-post">&#10010;</a>
     </main>
     
 
